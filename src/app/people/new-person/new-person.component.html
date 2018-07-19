@@ -1,0 +1,79 @@
+<mat-card class="content-form">
+  <form class="form" [formGroup]="PersonForm">
+    <strong>Datos Personales</strong>
+    <div class="form-person">
+      <div class="form-section-personal">
+        <mat-form-field class="input-form">
+          <input matInput type="number" placeholder="Cedula" id="identification" formControlName="identification" required>
+          <mat-error *ngIf="identification.invalid && (identification.dirty || identification.touched)">
+            Cedula es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input-form">
+          <input matInput placeholder="Nombres" id="name" formControlName="name" required>
+          <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+            Nombres es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input-form">
+          <input matInput placeholder="Apellidos" id="lastname" formControlName="lastname" required>
+          <mat-error *ngIf="lastname.invalid && lastname.touched && lastname.errors.required">
+            Apellidos es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input-form">
+          <input matInput placeholder="Ciudad" id="city" formControlName="city" required>
+          <mat-error *ngIf="city.invalid && city.touched && city.errors.required">
+            Ciudad es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input-form">
+          <mat-select placeholder="Género" formControlName="gender" required>
+            <mat-option [value]="'Femenino'">Femenino</mat-option>
+            <mat-option [value]="'Masculino'">Masculino</mat-option>
+          </mat-select>
+          <mat-error *ngIf="gender.invalid && gender.touched && gender.errors.required">Género es requerido</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-section-contact">
+        <p>Direcciones</p>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let addr of groupAddress; let i = index">
+            {{addr}} <button mat-icon-button (click)="deleteAddressOfGroup(i)">
+            <i class="material-icons">clear</i></button>
+          </mat-list-item>
+        </mat-list>
+        <div>
+          <mat-form-field class="input-form-contact">
+            <input matInput placeholder="Direccion" id="address" formControlName="address">
+          </mat-form-field>
+          <button mat-icon-button (click)="addNewAddress()">
+              <i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+      <div class="form-section-contact">
+        <p>Números telefónicos</p>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let phone of groupPhone; let i = index">
+            {{phone}}
+            <button mat-icon-button (click)="deletePhoneOfGroup(i)">
+              <i class="material-icons">clear</i>
+            </button>
+          </mat-list-item>
+        </mat-list>
+        <div>
+          <mat-form-field class="input-form-contact">
+            <input matInput placeholder="Telefono" id="phone" formControlName="phone">
+          </mat-form-field>
+          <button mat-icon-button (click)="addNewPhone()">
+              <i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button class="button-form" (click)="saveFormPerson()" [disabled]="PersonForm.invalid">Guardar</button>
+  </form>
+</mat-card>
+
+<button mat-raised-button class="button-form" (click)="prueba()">Guardar</button>

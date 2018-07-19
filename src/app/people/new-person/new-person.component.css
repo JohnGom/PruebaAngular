@@ -1,0 +1,40 @@
+.content-form {
+    margin: 20px 60px 20px 60px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-person {
+    margin: 20px 100px 20px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-form {
+    width: 400px;
+}
+
+.input-form-contact {
+    width: 200px;
+    margin-right: 5px;
+}
+
+.form-section-personal {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-form {
+    align-self: flex-end;
+    width: 80px;
+    margin-right: 100px
+}

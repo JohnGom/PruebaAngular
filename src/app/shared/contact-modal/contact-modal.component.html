@@ -1,0 +1,27 @@
+<div *ngIf="contact.typeContact === 'address'">
+  <h3>Direcciones</h3>
+  <div *ngIf="contact.person.address.length !== 0">
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let addr of contact.person.address">
+          <i class="material-icons">place</i> {{addr}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div *ngIf="contact.person.address.length === 0">
+    <p>No tiene direcciones resgistradas</p>
+  </div>
+</div>
+
+<div *ngIf="contact.typeContact==='phone'">
+  <h3>Telefonos</h3>
+  <div *ngIf="contact.person.phone.length !== 0">
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let cell of contact.person.phone">
+          <i class="material-icons">phone</i> {{cell}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div *ngIf="contact.person.phone.length === 0">
+    <p>No tiene numeros telefónicos resgistrados</p>
+  </div>
+</div>

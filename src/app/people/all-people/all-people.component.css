@@ -1,0 +1,10 @@
+.people-table {
+    display: flex;
+    margin: 20px 60px 20px 60px;
+    flex-direction: column
+}
+
+.new-perwson {
+    align-self: center;
+    margin-bottom: 20px;
+}
